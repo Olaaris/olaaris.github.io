@@ -1,6 +1,4 @@
-import './App.css';
 import React from 'react';
-import arthurp from './photos/arthurp.PNG';
 
 class Home extends React.Component{
   render() {

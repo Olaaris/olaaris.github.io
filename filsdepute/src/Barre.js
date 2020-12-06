@@ -11,10 +11,12 @@ function Barre() {
               <Nav.Link href="/">Home</Nav.Link>
               <NavDropdown title="Catalogue" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/fdp/Arthur">Arthur</NavDropdown.Item>
-                <NavDropdown.Item href="/fdp/3.2">Lourick</NavDropdown.Item>
-                <NavDropdown.Item href="/fdp/3.3">Matisse</NavDropdown.Item>
-                <NavDropdown.Item href="/fdp/3.4">Ben</NavDropdown.Item>
-                <NavDropdown.Item href="fdp/3.5">Vincent</NavDropdown.Item>
+                <NavDropdown.Item href="/fdp/Lourick">Lourick</NavDropdown.Item>
+                <NavDropdown.Item href="/fdp/Matisse">Matisse</NavDropdown.Item>
+                <NavDropdown.Item href="/fdp/Ben">Ben</NavDropdown.Item>
+                <NavDropdown.Item href="/fdp/Vincent">Vincent</NavDropdown.Item>
+                <NavDropdown.Item href="/fdp/Raph">Raph</NavDropdown.Item>
+                <NavDropdown.Item href="/fdp/Alex">Alex</NavDropdown.Item>
               </NavDropdown>
           </Nav>
       </Navbar>
