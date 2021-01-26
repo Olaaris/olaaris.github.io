@@ -9,7 +9,7 @@ function Barre() {
           <Navbar.Brand href="/">Fils de pute</Navbar.Brand>
           <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <NavDropdown title="Catalogue" id="collasible-nav-dropdown">
+              <NavDropdown title="Individus dangereux" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/fdp/Arthur">Arthur</NavDropdown.Item>
                 <NavDropdown.Item href="/fdp/Lourick">Lourick</NavDropdown.Item>
                 <NavDropdown.Item href="/fdp/Matisse">Matisse</NavDropdown.Item>
@@ -18,6 +18,9 @@ function Barre() {
                 <NavDropdown.Item href="/fdp/Raph">Raph</NavDropdown.Item>
                 <NavDropdown.Item href="/fdp/Alex">Alex</NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link href="/liste">Liste</Nav.Link>
+              <Nav.Link href="/faq">FAQ</Nav.Link>
+              <Nav.Link href="/ajouterfdp">FDP</Nav.Link>
           </Nav>
       </Navbar>
     </div>
