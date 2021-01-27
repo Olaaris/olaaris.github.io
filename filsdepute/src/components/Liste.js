@@ -1,45 +1,66 @@
 import React from 'react';
 import Fdp from './fdp';
+import ListeFdp from './listefdp'
 
 
 class Liste extends React.Component{
-    state = { isTrue: false, eventsState: [] }
-    componentWillMount = () => {
-      fetch('https://filsdeputeca.ue.r.appspot.com/api/fdp/').then(response => response.json()).then(data => {
-        this.setState({eventsState:data.data})
-      })
   
-    }
+  state = {nom: '',raison: '', isTrue: false};
+
+  submit = e => {
+    e.preventDefault();
+    let { nom, raison } = this.state;
+    fetch('https://filsdeputeca.ue.r.appspot.com/api/fdp/', {
+    method: 'POST',
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nom: nom,
+      raison: raison,
+    })
+  }).then(response => response.json()).then(data => {
+    alert("Fils de pute ajouté")
+  })
+  var is = !this.state.isTrue
+  this.setState({isTrue: is})
+  this.setState({nom: "", raison: ""})
+  console.log(this.state);
+  }
+
+
+  change = e => {
+      e.preventDefault();
+      this.setState({[e.currentTarget.name]: e.currentTarget.value});
+  }
+    
 
     render(){
-        const fdps = this.state.eventsState.map(fdp => {
-        return(
-       <tr>
-       <td scope="row">{fdp.id}</td>
-       <td>{fdp.nom}</td>
-       <td>{fdp.raison}</td>
-       <td>{fdp.date}</td>
-     </tr>
-            )
-        })
         return(
         <div>
-            <Fdp/>
+<div>
+            <b>Ajouter un fils de pute</b>
+            <form onSubmit={this.submit} class="d-flex justify-content-center p-2">
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInput">Nom</label>
+                  <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Nom" value={this.state.nom} onChange={this.change} name="nom"/>
+                </div>
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInput">Raison</label>
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Raison" onChange={this.change} value={this.state.raison}  name="raison"/>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+                </div>
+              </div>
+            </form>
+          </div>
             <hr/>
-            <h3>La liste</h3>
-            <table class="table mt-4">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Raison</th>
-                    <th scope="col">Date</th>
-                </tr>
-                </thead>
-                <tbody>
-                    {fdps}
-                </tbody>
-            </table>
+            <ListeFdp isTrue={this.state.isTrue}/>
       </div>)
 
         
@@ -47,3 +68,4 @@ class Liste extends React.Component{
 }
 
 export default Liste;
+
