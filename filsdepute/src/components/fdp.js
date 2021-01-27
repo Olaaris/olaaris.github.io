@@ -9,7 +9,7 @@ class Fdp extends React.Component{
     submit = e => {
       e.preventDefault();
       let { nom, raison } = this.state;
-      fetch('http://localhost:3001/api/fdp/', {
+      fetch('https://filsdeputeca.ue.r.appspot.com/api/fdp/', {
       method: 'POST',
       headers: {
         "Accept": "application/json",
