@@ -1,17 +1,29 @@
 import React from 'react';
 
 
+
 class Fdp extends React.Component{
 
-    state = {nom: '',recherche: ' '};
+    state = {nom: '',raison: ''};
 
     submit = e => {
-
-        e.preventDefault();
-        alert('A name was submitted: ' + this.state.nom + " " + this.state.recherche);
-
-        // Clear the form
-        this.setState({nom: "", recherche: ""});
+      e.preventDefault();
+      let { nom, raison } = this.state;
+      fetch('http://localhost:3001/api/fdp/', {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nom: nom,
+        raison: raison,
+      })
+    }).then(response => response.json()).then(data => {
+      alert("Fils de pute ajouté")
+      console.log(data)
+    })
+        this.setState({nom: "", raison: ""});
     }
 
     change = e => {
@@ -21,23 +33,25 @@ class Fdp extends React.Component{
       
       render() {
         return (
-            <div>
-                <br/>
-                <h1>Ajouter un fils de pute</h1>
-          <form onSubmit={this.submit}>
-              <hr></hr>
-            <label>
-              Nom
-              <br/>
-              <input type="text" name="nom" value={this.state.nom} onChange={this.change} /></label>
-              <hr></hr>
-              <label>
-              Recherché pour 
-              <br/>
-              <input type="text" name="recherche" value={this.state.recherche} onChange={this.change} /></label>
-              <hr/>
-            <input type="submit" value="Submit" />
-          </form>
+          <div>
+            <b>Ajouter un fils de pute</b>
+            <form onSubmit={this.submit} class="d-flex justify-content-center p-2">
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInput">Nom</label>
+                  <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Nom" value={this.state.nom} onChange={this.change} name="nom"/>
+                </div>
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInput">Raison</label>
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Raison" onChange={this.change} value={this.state.raison}  name="raison"/>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
+                </div>
+              </div>
+            </form>
           </div>
         );
       }

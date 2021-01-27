@@ -34,7 +34,6 @@ function App() {
       <Route path="/fdp/Alex" component={Alex} />
       <Route path="/faq" component={FAQ}></Route>
       <Route path="/liste" component={Liste}></Route>
-      <Route path="/ajouterfdp" component={Fdp}></Route>
       </div>
     <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>

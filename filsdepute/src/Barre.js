@@ -18,9 +18,10 @@ function Barre() {
                 <NavDropdown.Item href="/fdp/Raph">Raph</NavDropdown.Item>
                 <NavDropdown.Item href="/fdp/Alex">Alex</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/liste">Liste</Nav.Link>
               <Nav.Link href="/faq">FAQ</Nav.Link>
-              <Nav.Link href="/ajouterfdp">FDP</Nav.Link>
+              <Nav.Link href="/liste">Liste</Nav.Link>
+
+
           </Nav>
       </Navbar>
     </div>

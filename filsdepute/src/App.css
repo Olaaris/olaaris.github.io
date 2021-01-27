@@ -2,9 +2,23 @@
   text-align: center;
 }
 
+hr{
+  color: darkgray;
+  background-color: darkgray;
+  border-color: darkgray;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.main-route-place {
+  width: 50%;
+  align-self: center;
+}
+
+th,td{
+  color:white
 }
 
 @media (prefers-reduced-motion: no-preference) {
