@@ -21,7 +21,6 @@ class Fdp extends React.Component{
       })
     }).then(response => response.json()).then(data => {
       alert("Fils de pute ajouté")
-      console.log(data)
     })
         this.setState({nom: "", raison: ""});
     }

@@ -7,7 +7,6 @@ class Liste extends React.Component{
     componentWillMount = () => {
       fetch('https://filsdeputeca.ue.r.appspot.com/api/fdp/').then(response => response.json()).then(data => {
         this.setState({eventsState:data.data})
-        console.log(this.state.eventsState);
       })
   
     }
