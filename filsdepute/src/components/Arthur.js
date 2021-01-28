@@ -7,7 +7,7 @@ class Arthur extends React.Component{
     <div className="Arthur">
       <br></br>
 
-      <h1>Recherché pour permaken</h1>
+      <h1>Recherche une femme, contactez "Achuga Bongo" sur League of Legends si intéressé (Gros pénis)</h1>
       <br></br>
       <img src={arthurp}></img>
       <div></div>

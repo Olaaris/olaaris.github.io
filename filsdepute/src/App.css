@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  max-width: 100%;
 }
 
 hr{
@@ -12,8 +13,13 @@ hr{
   pointer-events: none;
 }
 
+img{
+  width: 100%;
+  height: auto;
+}
+
 .main-route-place {
-  width: 50%;
+  width: 75%;
   align-self: center;
 }
 

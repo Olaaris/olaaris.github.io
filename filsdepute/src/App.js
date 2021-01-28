@@ -11,10 +11,9 @@ import Matisse from './components/Matisse';
 import Vincent from './components/Vincent';
 import Home from './Home';
 import Alex from './components/Alex';
+import Will from './components/Will'
 import FAQ from './components/FAQ';
 import Liste from './components/Liste';
-import Fdp from './components/fdp';
-
 
 function App() {
   return (
@@ -32,6 +31,7 @@ function App() {
       <Route path="/fdp/Matisse" component={Matisse} />
       <Route path="/fdp/Vincent" component={Vincent} />
       <Route path="/fdp/Alex" component={Alex} />
+      <Route path="/fdp/Will" component={Will} />
       <Route path="/faq" component={FAQ}></Route>
       <Route path="/liste" component={Liste}></Route>
       </div>

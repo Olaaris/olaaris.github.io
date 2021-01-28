@@ -36,7 +36,6 @@ class ListeFdp extends React.Component{
         const fdps = this.state.eventsState.map(fdp => {
             return(
            <tr>
-            <td scope="row">{fdp.id}</td>
             <td>{fdp.nom}</td>
             <td>{fdp.raison}</td>
             <td>{fdp.date}</td>
@@ -55,10 +54,9 @@ class ListeFdp extends React.Component{
                 </div>
 
             
-                <table class="table mt-4">
+                <table class="table mt-4 table-dark table-striped table-responsive-sm">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Raison</th>
                         <th scope="col">Date</th>
