@@ -7,7 +7,7 @@ class Matisse extends React.Component{
     <div className="Matisse">
       <br></br>
 
-      <h1>Recherché pour crimes en Angola en 1985</h1>
+      <h5>Recherché pour crimes en Angola en 1985</h5>
       <br></br>
       <img src={photo}></img>
       <div></div>

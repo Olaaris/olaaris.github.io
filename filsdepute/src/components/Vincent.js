@@ -7,7 +7,7 @@ class Vincent extends React.Component{
     <div className="Vincent">
       <br></br>
 
-      <h1>Recherché pour avoir fait chié avec la grammaire</h1>
+      <h5>Recherché pour avoir fait chié avec la grammaire</h5>
       <br></br>
       <img src={photo}></img>
       <div></div>

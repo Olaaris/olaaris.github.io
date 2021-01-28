@@ -6,8 +6,7 @@ class Arthur extends React.Component{
     return (
     <div className="Arthur">
       <br></br>
-
-      <h1>Recherche une femme, contactez "Achuga Bongo" sur League of Legends si intéressé (Gros pénis)</h1>
+      <h5>Recherche une femme, contactez "Achuga Bongo" sur League of Legends si intéressé (Gros pénis)</h5>
       <br></br>
       <img src={arthurp}></img>
       <div></div>

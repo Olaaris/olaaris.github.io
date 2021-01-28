@@ -8,7 +8,6 @@ class FAQ extends React.Component{
         return <a onClick={play}>moula</a>
     }
     return (
-        
     <div className="FAQ">
       <br></br>
       <h1>FAQ</h1>

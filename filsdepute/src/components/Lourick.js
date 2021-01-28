@@ -14,7 +14,7 @@ class Lourick extends React.Component{
     <div className="Lourick">
       <br></br>
 
-      <h1>Recherché pour démence et autres troubles mentaux</h1>
+      <h5>Recherché pour démence et autres troubles mentaux</h5>
       <BiereAction/>
      <br></br>
 

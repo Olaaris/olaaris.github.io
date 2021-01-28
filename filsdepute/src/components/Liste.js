@@ -39,7 +39,7 @@ class Liste extends React.Component{
     render(){
         return(
         <div>
-<div>
+          <div>
             <b>Ajouter un fils de pute</b>
             <form onSubmit={this.submit} class="d-flex justify-content-center p-2">
               <div class="form-row align-items-center">

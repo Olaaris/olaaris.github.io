@@ -20,7 +20,7 @@ class Ben extends React.Component{
     <div className="Ben">
       <br></br>
 
-      <h1>Recherché pour piraterie en territoire Somalien</h1>
+      <h5>Recherché pour piraterie en territoire Somalien</h5>
       <br></br>
       
       <img id="image" src={imagesPath[imageName]} onClick={this.toggleImage}></img>

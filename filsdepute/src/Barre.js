@@ -5,7 +5,7 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 function Barre() {
   return (
     <div className="Barre">
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" class="d-block">
           <Navbar.Brand href="/">Fils de pute</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

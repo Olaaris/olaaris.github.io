@@ -7,7 +7,7 @@ class Alex extends React.Component{
     <div className="Alex">
       <br></br>
 
-      <h1>Recherché pour avoir choke pour une fille laide</h1>
+      <h5>Recherché pour avoir choke pour une fille laide</h5>
       <br></br>
       <img src={photo}></img>
       <div></div>
