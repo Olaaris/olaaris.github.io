@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.15807a5c.chunk.css",
-    "main.js": "/static/js/main.2609f073.chunk.js",
-    "main.js.map": "/static/js/main.2609f073.chunk.js.map",
+    "main.js": "/static/js/main.17ec6972.chunk.js",
+    "main.js.map": "/static/js/main.17ec6972.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a4608870.js",
     "runtime-main.js.map": "/static/js/runtime-main.a4608870.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.00316326.chunk.js": "/static/js/2.00316326.chunk.js",
-    "static/js/2.00316326.chunk.js.map": "/static/js/2.00316326.chunk.js.map",
+    "static/js/2.cf3cbb7f.chunk.js": "/static/js/2.cf3cbb7f.chunk.js",
+    "static/js/2.cf3cbb7f.chunk.js.map": "/static/js/2.cf3cbb7f.chunk.js.map",
     "static/js/3.6cb3e241.chunk.js": "/static/js/3.6cb3e241.chunk.js",
     "static/js/3.6cb3e241.chunk.js.map": "/static/js/3.6cb3e241.chunk.js.map",
     "static/js/4.dfc7e54a.chunk.js": "/static/js/4.dfc7e54a.chunk.js",
@@ -15,7 +15,7 @@
     "index.html": "/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/static/css/2.20aa2d7b.chunk.css.map",
     "static/css/main.15807a5c.chunk.css.map": "/static/css/main.15807a5c.chunk.css.map",
-    "static/js/2.00316326.chunk.js.LICENSE.txt": "/static/js/2.00316326.chunk.js.LICENSE.txt",
+    "static/js/2.cf3cbb7f.chunk.js.LICENSE.txt": "/static/js/2.cf3cbb7f.chunk.js.LICENSE.txt",
     "static/js/3.6cb3e241.chunk.js.LICENSE.txt": "/static/js/3.6cb3e241.chunk.js.LICENSE.txt",
     "static/media/alex.d7c9c360.PNG": "/static/media/alex.d7c9c360.PNG",
     "static/media/arthurp.fb9d5b7e.PNG": "/static/media/arthurp.fb9d5b7e.PNG",
@@ -24,7 +24,7 @@
     "static/media/can.77f99798.mp3": "/static/media/can.77f99798.mp3",
     "static/media/glitch.d4b831ff.mp3": "/static/media/glitch.d4b831ff.mp3",
     "static/media/lourick.1e85b8ef.png": "/static/media/lourick.1e85b8ef.png",
-    "static/media/matti.d0e4e76e.jpg": "/static/media/matti.d0e4e76e.jpg",
+    "static/media/matti.e580356c.png": "/static/media/matti.e580356c.png",
     "static/media/moulaga.0187ea12.mp3": "/static/media/moulaga.0187ea12.mp3",
     "static/media/raph.1f0e3600.jpg": "/static/media/raph.1f0e3600.jpg",
     "static/media/raphtemps.3ff685d9.png": "/static/media/raphtemps.3ff685d9.png",
@@ -34,8 +34,8 @@
   "entrypoints": [
     "static/js/runtime-main.a4608870.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.00316326.chunk.js",
+    "static/js/2.cf3cbb7f.chunk.js",
     "static/css/main.15807a5c.chunk.css",
-    "static/js/main.2609f073.chunk.js"
+    "static/js/main.17ec6972.chunk.js"
   ]
 }
