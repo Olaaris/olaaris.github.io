@@ -15,8 +15,9 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nom text, 
             raison text,
-            date text
-            CHECK(length("nom") <= 20 AND length("raison") <= 20)
+            date text,
+            image text,
+            CHECK(length("nom") <= 30 AND length("raison") <= 30)
             )`);*/
         (err) => {
             if (err) {
