@@ -19,11 +19,11 @@ var options = {
 };
 
 // Server port
-var HTTP_PORT = 80
+var port = 443
 
 var server = https.createServer(options, app);
 
-server.listen(HTTP_PORT, () => {
+server.listen(port, () => {
   console.log("server starting on port : " + port)
 });
 
