@@ -8,6 +8,8 @@ const fs = require('fs');
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 app.use(cors());
 
 
@@ -64,10 +66,11 @@ app.post("/api/fdp/",(req, res, next) => {
     var data = {
         nom: req.body.nom,
         raison : req.body.raison,
-        date: req.body.date
+        date: req.body.date,
+        image: req.body.image,
     }
-    var sql ='INSERT INTO fdp (nom, raison, date) VALUES (?,?,?)'
-    var params =[data.nom, data.raison,data.date]
+    var sql ='INSERT INTO fdp (nom, raison, date,image) VALUES (?,?,?,?)'
+    var params =[data.nom, data.raison,data.date,data.image]
     db.run(sql, params, function (err, result) {
         if (err){
             res.status(400).json({"error": err.message})
