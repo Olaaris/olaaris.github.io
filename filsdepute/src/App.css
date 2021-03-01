@@ -9,6 +9,10 @@ hr{
   border-color: darkgray;
 }
 
+.warn{
+  color: red;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

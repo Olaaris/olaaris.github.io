@@ -1,6 +1,6 @@
 import React from 'react';
-import Fdp from './fdp';
 import ListeFdp from './listefdp'
+import moment from "moment";
 
 
 class Liste extends React.Component{
@@ -10,7 +10,7 @@ class Liste extends React.Component{
   submit = e => {
     e.preventDefault();
     let { nom, raison } = this.state;
-    fetch('https://filsdeputeca.ue.r.appspot.com/api/fdp/', {
+    fetch('http://18.191.59.77/api/fdp', {
     method: 'POST',
     headers: {
       "Accept": "application/json",
@@ -19,6 +19,7 @@ class Liste extends React.Component{
     body: JSON.stringify({
       nom: nom,
       raison: raison,
+      date: moment().format("DD/MM/YYYY"),
     })
   }).then(response => response.json()).then(data => {
     alert("Fils de pute ajouté")

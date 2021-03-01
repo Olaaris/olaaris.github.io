@@ -12,6 +12,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "knex": "^0.21.12",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-device-detect": "^1.15.0",
