@@ -11,7 +11,7 @@ class ListeFdp extends React.Component{
                     };
     }
     componentWillMount = () => {
-      fetch('http://18.191.59.77/api/fdp').then(response => response.json()).then(data => {
+      fetch('https://18.218.193.149/api/fdp').then(response => response.json()).then(data => {
         this.setState({eventsState:data.data})
       })
   
@@ -25,7 +25,7 @@ class ListeFdp extends React.Component{
 
     componentDidUpdate(prevProps) {
         if (prevProps.isTrue  !== this.state.isTrue) {
-            fetch('http://18.191.59.77/api/fdp').then(response => response.json()).then(data => {
+            fetch('https://18.218.193.149/api/fdp').then(response => response.json()).then(data => {
                 this.setState({eventsState:data.data})
               })
         }
