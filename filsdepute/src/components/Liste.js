@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ListeFdp from './listefdp'
 import moment from "moment";
+import { Button, Modal, ModalBody, NavDropdown } from 'react-bootstrap';
+import FileBase64 from 'react-file-base64';
 
 
+var handleShow;
+var result,message;
 class Liste extends React.Component{
+  
   
   state = {nom: '',raison: '', isTrue: false};
 
@@ -21,21 +26,33 @@ class Liste extends React.Component{
       raison: raison,
       date: moment().format("DD/MM/YYYY"),
     })
-  }).then(response => response.json()).then(data => {
-    alert("Fils de pute ajouté")
+  }).then(response => {
+    console.log(response)
+    if(response.ok){
+      result = "Fils de pute ajouté"
+      message = "Veuillez rafraîchir la page"
+    } else {
+      result = "Erreur !"
+      message = "Veuillez vérifier les champs"
+    }
+    handleShow()
+
   })
   var is = !this.state.isTrue
   this.setState({isTrue: is})
   this.setState({nom: "", raison: ""})
-  console.log(this.state);
   }
 
+
+  getFiles(files){
+    this.setState({ files: files })
+    console.log(this.state.files.base64)
+  }
 
   change = e => {
       e.preventDefault();
       this.setState({[e.currentTarget.name]: e.currentTarget.value});
-  }
-    
+  }   
 
     render(){
         return(
@@ -54,6 +71,7 @@ class Liste extends React.Component{
                     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Raison" onChange={this.change} value={this.state.raison}  name="raison"/>
                   </div>
                 </div>
+                <Popup></Popup>
                 <div class="col-auto">
                   <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
                 </div>
@@ -66,6 +84,32 @@ class Liste extends React.Component{
 
         
     }
+}
+
+//                <FileBase64 multiple={ false } onDone={ this.getFiles.bind(this) }></FileBase64>
+
+function Popup() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  handleShow = () => setShow(true);
+
+  return (
+    <>
+
+      <Modal show={show} onHide={handleClose} >
+        <Modal.Header closeButton>
+          <Modal.Title>{result}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{message}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Fermer
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
 
 export default Liste;

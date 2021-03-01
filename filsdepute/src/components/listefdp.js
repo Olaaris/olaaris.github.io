@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { useEffect, useState } from "react";
+import { Button, Modal, NavDropdown } from 'react-bootstrap';
 
 class ListeFdp extends React.Component{
     constructor(props) {
@@ -39,18 +40,16 @@ class ListeFdp extends React.Component{
             <td>{fdp.nom}</td>
             <td>{fdp.raison}</td>
             <td>{fdp.date}</td>
+            <td><Popup f={fdp}></Popup></td>
            </tr>
                 )
             })
             return(
             <div>
-                <div class = "d-flex justify-content-between">
+                <div>
                     <div class="align-self-center">
                         <h3 class="text-center">La liste</h3>
                     </div>
-                    <div class="col-md-auto"> 
-                        <button onClick={this.refresh} class="btn btn-primary mb-2 float-right">Refresh</button>
-                    </div> 
                 </div>
 
             
@@ -69,6 +68,33 @@ class ListeFdp extends React.Component{
                 </div>)
     }
 }
+
+function Popup(f) {
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    return (
+      <>
+        <Button variant="primary" onClick={handleShow}>
+          Info
+        </Button>
+  
+        <Modal show={show} onHide={handleClose} >
+          <Modal.Header closeButton>
+            <Modal.Title>{f.f.nom}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{f.f.raison}</Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+              Fermer
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
 
 
 
