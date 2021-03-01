@@ -3,17 +3,30 @@ var express = require("express")
 var db = require("./database.js")
 var app = express()
 var cors = require('cors')
+const https = require('https');
+const fs = require('fs');
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+
+var key = fs.readFileSync(__dirname + '/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+var options = {
+  key: key,
+  cert: cert
+};
+
 // Server port
 var HTTP_PORT = 80
-// Start server
-app.listen(HTTP_PORT, () => {
-    console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
+
+var server = https.createServer(options, app);
+
+server.listen(HTTP_PORT, () => {
+  console.log("server starting on port : " + port)
 });
+
 // Root endpoint
 app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
