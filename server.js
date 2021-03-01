@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Server port
-var HTTP_PORT = 8080 
+var HTTP_PORT = 80
 // Start server
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
@@ -53,8 +53,6 @@ app.post("/api/fdp/",(req, res, next) => {
         raison : req.body.raison,
         date: req.body.date
     }
-
-    // current year
     var sql ='INSERT INTO fdp (nom, raison, date) VALUES (?,?,?)'
     var params =[data.nom, data.raison,data.date]
     db.run(sql, params, function (err, result) {
@@ -69,6 +67,33 @@ app.post("/api/fdp/",(req, res, next) => {
         })
     });
 });
+
+app.post("/api/delfdp/",(req, res, next) => {
+    var errors=[]
+    if (!req.body.id){
+        errors.push("No id specified");
+    }
+    if (errors.length){
+        res.status(400).json({"error":errors.join(",")});
+        return;
+    }
+    var data = {
+        id: req.body.id,
+    }
+    var sql ='DELETE FROM fdp WHERE id = '+data.id
+    db.run(sql, function (err, result) {
+        if (err){
+            res.status(400).json({"error": err.message})
+            return;
+        }
+        res.json({
+            "message": "success",
+            "data": data,
+            "id" : this.lastID
+        })
+    });
+});
+
 
 
 // Default response for any other request
