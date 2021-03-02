@@ -15,16 +15,20 @@ class Liste extends React.Component{
   submit = e => {
     e.preventDefault();
     let { nom, raison } = this.state;
-    fetch('https://api.filsdepute.ca/api/fdp', {
+    fetch(            
+    /*'https://api.filsdepute.ca/api/fdp'*/
+    'https://localhost/api/fdp', 
+    {
     method: 'POST',
     headers: {
       "Accept": "application/json",
-      "Content-Type": "application/json",
+
     },
     body: JSON.stringify({
       nom: nom,
       raison: raison,
       date: moment().format("DD/MM/YYYY"),
+      image: this.state.files.base64,
     })
   }).then(response => {
     console.log(response)
@@ -72,6 +76,7 @@ class Liste extends React.Component{
                   </div>
                 </div>
                 <Popup></Popup>
+                <FileBase64 multiple={ false } onDone={ this.getFiles.bind(this) }></FileBase64>
                 <div class="col-auto">
                   <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
                 </div>

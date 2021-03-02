@@ -1,7 +1,7 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Button, Modal, NavDropdown } from 'react-bootstrap';
-
 
 class ListeFdp extends React.Component{
     constructor(props) {
@@ -13,7 +13,10 @@ class ListeFdp extends React.Component{
                     };
     }
     componentWillMount = () => {
-      fetch('https://api.filsdepute.ca/api/fdp').then(response => response.json()).then(data => {
+      fetch(
+        /*'https://api.filsdepute.ca/api/fdp'*/
+        'https://localhost/api/fdp'
+      ).then(response => response.json()).then(data => {
         this.setState({eventsState:data.data})
       })
   
@@ -27,7 +30,10 @@ class ListeFdp extends React.Component{
 
     componentDidUpdate(prevProps) {
         if (prevProps.isTrue  !== this.state.isTrue) {
-            fetch('https://api.filsdepute.ca/api/fdp').then(response => response.json()).then(data => {
+            fetch(       
+            /*'https://api.filsdepute.ca/api/fdp'*/
+            'https://localhost/api/fdp'
+            ).then(response => response.json()).then(data => {
                 this.setState({eventsState:data.data})
               })
         }
@@ -70,7 +76,6 @@ function Popup(f) {
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
     return (
       <>
         <tr onClick={handleShow}>
@@ -78,12 +83,15 @@ function Popup(f) {
             <td>{f.f.raison}</td>
             <td>{f.f.date}</td>
           </tr>
+
+
   
         <Modal show={show} onHide={handleClose} >
           <Modal.Header closeButton>
             <Modal.Title>{f.f.nom}</Modal.Title>
           </Modal.Header>
           <Modal.Body>{f.f.raison}</Modal.Body>
+          <Modal.Body><img src={"https://api.filsdepute.ca/uploads/"+f.f.image}></img></Modal.Body>
           <Modal.Footer>
             <Button variant="primary" onClick={handleClose}>
               Fermer
