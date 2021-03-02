@@ -3,6 +3,10 @@
   max-width: 100%;
 }
 
+
+td{
+  width: 33.33%
+}
 th {
   background-color: #0a0f0f;
   color: white;
