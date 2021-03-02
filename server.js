@@ -102,12 +102,16 @@ app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
         res.status(400).json({"error":errors.join(",")});
         return;
     }
+    if(req.file==null){
+        req.file.filename = "missing"
+    }
     var data = {
         nom: req.body.nom,
         raison : req.body.raison,
         date: req.body.date,
         image: req.file.filename,
     }
+    
     var sql ='INSERT INTO fdp (nom, raison, date,image) VALUES (?,?,?,?)'
     var params =[data.nom, data.raison,data.date,data.image]
     db.run(sql, params, function (err, result) {
