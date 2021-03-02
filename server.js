@@ -102,8 +102,11 @@ app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
         res.status(400).json({"error":errors.join(",")});
         return;
     }
+    var nom_image;
     if(req.file==null){
-        req.file.filename = "missing"
+        nom_image = "missing"
+    } else{
+        nom_image = req.file.filename
     }
     var data = {
         nom: req.body.nom,
