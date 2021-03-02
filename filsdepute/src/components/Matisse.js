@@ -7,9 +7,9 @@ class Matisse extends React.Component{
     <div className="Matisse">
       <br></br>
 
-      <h5>Recherché pour crimes en Angola en 1985</h5>
+      <h5>Recherché pour trop de drip</h5>
       <br></br>
-      <img src={photo}></img>
+      <img src={photo} className="inddang"></img>
       <div></div>
       <b>Matti</b>
     </div>

@@ -10,7 +10,7 @@ class Raph extends React.Component{
 
       <h5>Recherché pour avoir le même mental qu'un enfant</h5>
       <br></br>
-      <img src={raphtemps}></img>
+      <img src={raphtemps} className="inddang"></img>
       <div></div>
       <b>Raph</b>
     </div>

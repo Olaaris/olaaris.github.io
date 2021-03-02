@@ -8,7 +8,7 @@ class Lourick extends React.Component{
     
   render() {
     const BiereAction = () => {const [play] = useSound(biere);
-    return <img src={photo} onClick={play}></img>
+    return <img src={photo} onClick={play} className="inddang"></img>
 }
     return (
     <div className="Lourick">
