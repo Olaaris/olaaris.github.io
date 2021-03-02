@@ -5,11 +5,37 @@ var app = express()
 var cors = require('cors')
 const https = require('https');
 const fs = require('fs');
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        cb(null,'./uploads/')
+    },
+    filename: function(req,file,cb){
+        cb(null, Date.now() + file.originalname)
+    }
+})
+const filter = (req,file,cb) => {
+    if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+        cb(null,true)
+    } else {
+        cb(null,false)
+    }
+
+}
+const upload = multer({
+    storage : storage, 
+    limits:{ 
+        fileSize: 1024*1024*5
+    }, 
+    fileFilter: filter
+});
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '10mb', extended: true}))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+app.use('/uploads',express.static('uploads'))
 
 var allowedOrigins = ['http://localhost:3000',
                       'https://filsdepute.ca'];
@@ -63,7 +89,8 @@ app.get("/api/fdp", (req, res, next) => {
 });
 
 
-app.post("/api/fdp/",(req, res, next) => {
+app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
+    console.log(req.file)
     var errors=[]
     if (!req.body.nom){
         errors.push("No name specified");
@@ -79,7 +106,7 @@ app.post("/api/fdp/",(req, res, next) => {
         nom: req.body.nom,
         raison : req.body.raison,
         date: req.body.date,
-        image: req.body.image,
+        image: req.file.filename,
     }
     var sql ='INSERT INTO fdp (nom, raison, date,image) VALUES (?,?,?,?)'
     var params =[data.nom, data.raison,data.date,data.image]
