@@ -25,8 +25,8 @@ app.use(cors({
 }));
 
 
-var key = fs.readFileSync(__dirname + '/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+var key = fs.readFileSync(__dirname + '/fdp.key');
+var cert = fs.readFileSync(__dirname + '/fdp.crt');
 var options = {
   key: key,
   cert: cert
