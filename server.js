@@ -26,7 +26,7 @@ app.use(cors({
 
 
 var key = fs.readFileSync(__dirname + '/fdp.key');
-var cert = fs.readFileSync(__dirname + '/fdp.crt');
+var cert = fs.readFileSync(__dirname + '/api_filsdepute_ca.crt');
 var options = {
   key: key,
   cert: cert
