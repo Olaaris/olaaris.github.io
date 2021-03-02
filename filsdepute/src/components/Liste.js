@@ -15,7 +15,7 @@ class Liste extends React.Component{
   submit = e => {
     e.preventDefault();
     let { nom, raison } = this.state;
-    fetch('https://18.218.193.149/api/fdp', {
+    fetch('https://api.filsdepute.ca/api/fdp', {
     method: 'POST',
     headers: {
       "Accept": "application/json",

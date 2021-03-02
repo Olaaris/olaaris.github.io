@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { Button, Modal, NavDropdown } from 'react-bootstrap';
 
+
 class ListeFdp extends React.Component{
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class ListeFdp extends React.Component{
                     };
     }
     componentWillMount = () => {
-      fetch('https://18.218.193.149/api/fdp').then(response => response.json()).then(data => {
+      fetch('https://api.filsdepute.ca/api/fdp').then(response => response.json()).then(data => {
         this.setState({eventsState:data.data})
       })
   
@@ -26,7 +27,7 @@ class ListeFdp extends React.Component{
 
     componentDidUpdate(prevProps) {
         if (prevProps.isTrue  !== this.state.isTrue) {
-            fetch('https://18.218.193.149/api/fdp').then(response => response.json()).then(data => {
+            fetch('https://api.filsdepute.ca/api/fdp').then(response => response.json()).then(data => {
                 this.setState({eventsState:data.data})
               })
         }
@@ -36,12 +37,7 @@ class ListeFdp extends React.Component{
     render(){
         const fdps = this.state.eventsState.map(fdp => {
             return(
-           <tr>
-            <td>{fdp.nom}</td>
-            <td>{fdp.raison}</td>
-            <td>{fdp.date}</td>
-            <td><Popup f={fdp}></Popup></td>
-           </tr>
+            <Popup f={fdp}></Popup>
                 )
             })
             return(
@@ -53,7 +49,7 @@ class ListeFdp extends React.Component{
                 </div>
 
             
-                <table class="table mt-4 table-dark table-striped table-responsive-sm">
+                <table class="table table-hover table-bordered mt-4 table-dark table-responsive-sm">
                     <thead>
                     <tr>
                         <th scope="col">Nom</th>
@@ -77,9 +73,11 @@ function Popup(f) {
   
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Info
-        </Button>
+        <tr onClick={handleShow}>
+            <td>{f.f.nom}</td>
+            <td>{f.f.raison}</td>
+            <td>{f.f.date}</td>
+          </tr>
   
         <Modal show={show} onHide={handleClose} >
           <Modal.Header closeButton>
