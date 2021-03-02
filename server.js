@@ -104,7 +104,7 @@ app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
     }
     var nom_image;
     if(req.file==null){
-        nom_image = "missing"
+        nom_image = "missing.png"
     } else{
         nom_image = req.file.filename
     }
