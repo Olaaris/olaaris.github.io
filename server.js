@@ -112,7 +112,7 @@ app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
         nom: req.body.nom,
         raison : req.body.raison,
         date: req.body.date,
-        image: req.file.filename,
+        image: nom_image,
     }
     
     var sql ='INSERT INTO fdp (nom, raison, date,image) VALUES (?,?,?,?)'
