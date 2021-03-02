@@ -14,8 +14,8 @@ class ListeFdp extends React.Component{
     }
     componentWillMount = () => {
       fetch(
-        /*'https://api.filsdepute.ca/api/fdp'*/
-        'https://localhost/api/fdp'
+        'https://api.filsdepute.ca/api/fdp'
+        /*'https://localhost/api/fdp'*/
       ).then(response => response.json()).then(data => {
         this.setState({eventsState:data.data})
       })
@@ -31,8 +31,8 @@ class ListeFdp extends React.Component{
     componentDidUpdate(prevProps) {
         if (prevProps.isTrue  !== this.state.isTrue) {
             fetch(       
-            /*'https://api.filsdepute.ca/api/fdp'*/
-            'https://localhost/api/fdp'
+            'https://api.filsdepute.ca/api/fdp'
+            /*'https://localhost/api/fdp'*/
             ).then(response => response.json()).then(data => {
                 this.setState({eventsState:data.data})
               })

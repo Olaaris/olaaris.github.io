@@ -2,34 +2,34 @@ import React, { useState } from 'react';
 import ListeFdp from './listefdp'
 import moment from "moment";
 import { Button, Modal, ModalBody, NavDropdown } from 'react-bootstrap';
-import FileBase64 from 'react-file-base64';
 
 
-var handleShow;
+
+var handleShow,file;
 var result,message;
 class Liste extends React.Component{
-  
-  
+
   state = {nom: '',raison: '', isTrue: false};
 
   submit = e => {
     e.preventDefault();
     let { nom, raison } = this.state;
+    console.log(file)
+    let formData = new FormData()
+    formData.append('nom',nom)
+    formData.append('raison',raison)
+    formData.append('date',moment().format("DD/MM/YYYY"))
+    formData.append('image',file)
     fetch(            
-    /*'https://api.filsdepute.ca/api/fdp'*/
-    'https://localhost/api/fdp', 
+    'https://api.filsdepute.ca/api/fdp'
+    /*'https://localhost/api/fdp'*/
+    , 
     {
     method: 'POST',
     headers: {
       "Accept": "application/json",
-
     },
-    body: JSON.stringify({
-      nom: nom,
-      raison: raison,
-      date: moment().format("DD/MM/YYYY"),
-      image: this.state.files.base64,
-    })
+    body: formData
   }).then(response => {
     console.log(response)
     if(response.ok){
@@ -47,11 +47,6 @@ class Liste extends React.Component{
   this.setState({nom: "", raison: ""})
   }
 
-
-  getFiles(files){
-    this.setState({ files: files })
-    console.log(this.state.files.base64)
-  }
 
   change = e => {
       e.preventDefault();
@@ -76,7 +71,7 @@ class Liste extends React.Component{
                   </div>
                 </div>
                 <Popup></Popup>
-                <FileBase64 multiple={ false } onDone={ this.getFiles.bind(this) }></FileBase64>
+                <FileUploadPage/>
                 <div class="col-auto">
                   <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
                 </div>
@@ -90,8 +85,6 @@ class Liste extends React.Component{
         
     }
 }
-
-//                <FileBase64 multiple={ false } onDone={ this.getFiles.bind(this) }></FileBase64>
 
 function Popup() {
   const [show, setShow] = useState(false);
@@ -115,6 +108,23 @@ function Popup() {
       </Modal>
     </>
   );
+}
+
+function FileUploadPage(){
+	const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+
+	const changeHandler = (event) => {
+		setSelectedFile(event.target.files[0]);
+		file =event.target.files[0]
+	};
+
+
+	return(
+   <div>
+			<input type="file" name="file" onChange={changeHandler} />
+		</div>
+	)
 }
 
 export default Liste;
