@@ -31,6 +31,7 @@ const upload = multer({
     fileFilter: filter
 });
 var bodyParser = require("body-parser");
+const { SSL_OP_MSIE_SSLV2_RSA_PADDING } = require("constants");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({limit: '10mb', extended: true}))
@@ -90,7 +91,6 @@ app.get("/api/fdp", (req, res, next) => {
 
 
 app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
-    console.log(req.file)
     var errors=[]
     if (!req.body.nom){
         errors.push("No name specified");
@@ -120,6 +120,7 @@ app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
     db.run(sql, params, function (err, result) {
         if (err){
             res.status(400).json({"error": err.message})
+            fs.unlinkSync(req.file.path)
             return;
         }
         res.json({
@@ -155,6 +156,31 @@ app.post("/api/delfdp/",(req, res, next) => {
         })
     });
 });
+
+app.post("/api/sql/",(req, res, next) => {
+    var errors=[]
+    console.log(req.body)
+    if (errors.length){
+        res.status(400).json({"error":errors.join(",")});
+        return;
+    }
+    var data = {
+        requete: req.body.requete,
+    }
+    db.run('UPDATE fdp SET image = "missing.jpg" WHERE image is null;', function (err, result)
+     {
+        if (err){
+            res.status(400).json({"error": err.message})
+            return;
+        }
+        res.json({
+            "message": "success",
+            "data": data,
+            "id" : this.lastID
+        })
+    });
+});
+
 
 
 
