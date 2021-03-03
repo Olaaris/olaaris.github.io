@@ -103,7 +103,7 @@ app.post("/api/fdp/",upload.single('image'),(req, res, next) => {
     }
     var nom_image;
     if(req.file==null){
-        nom_image = "missing.png"
+        nom_image = "missing.jpg"
     } else{
         nom_image = req.file.filename
     }
@@ -155,7 +155,7 @@ app.post("/api/delfdp/",(req, res, next) => {
         })
     });
 });
-/*
+
 app.post("/api/sql/",(req, res, next) => {
     var errors=[]
     console.log(req.body)
@@ -166,7 +166,7 @@ app.post("/api/sql/",(req, res, next) => {
     var data = {
         requete: req.body.requete,
     }
-    db.run('ALTER TABLE fdp2 RENAME TO fdp;', function (err, result)
+    db.run('UPDATE fdp SET image = "missing.jpg" WHERE image ="missing.png";', function (err, result)
      {
         if (err){
             res.status(400).json({"error": err.message})
@@ -179,7 +179,7 @@ app.post("/api/sql/",(req, res, next) => {
         })
     });
 });
-*/
+
 
 
 
