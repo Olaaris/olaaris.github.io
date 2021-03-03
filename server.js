@@ -166,7 +166,7 @@ app.post("/api/sql/",(req, res, next) => {
     var data = {
         requete: req.body.requete,
     }
-    db.run('CREATE TABLE fdp2 (id INTEGER PRIMARY KEY AUTOINCREMENT,nom text,raison text, date text, image text); INSERT INTO fdp2 (id, raison, date,image) SELECT id, raison, date,image FROM fdp; DROP TABLE fdp;ALTER TABLE fdp2 RENAME TO fdp', function (err, result)
+    db.run('ALTER TABLE fdp2 RENAME TO fdp;', function (err, result)
      {
         if (err){
             res.status(400).json({"error": err.message})
@@ -178,8 +178,8 @@ app.post("/api/sql/",(req, res, next) => {
             "id" : this.lastID
         })
     });
-});*/
-
+});
+*/
 
 
 
